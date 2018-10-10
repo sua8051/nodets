@@ -1,9 +1,9 @@
-import * as express from 'express'
+import * as express from "express"
 
 export default class App {
   public express = null
 
-  constructor () {
+  constructor() {
     this.express = express()
     this.init()
   }
@@ -11,13 +11,13 @@ export default class App {
   private init(): void {
     const router = express.Router()
 
-    router.get('/', (req, res) => {
+    router.get("/", (req, res) => {
       res.json({
-        message: 'Hello World!'
+        message: "Hello World!"
       })
     })
 
-    this.express.use('/', router)
+    this.express.use("/", router)
   }
 
   start(port: string) {
@@ -25,7 +25,7 @@ export default class App {
       if (err) {
         return console.log(err)
       }
-      return console.log(`server is listening on ${port}`)
+      return console.log("server is listening on ${port}")
     })
   }
 }
